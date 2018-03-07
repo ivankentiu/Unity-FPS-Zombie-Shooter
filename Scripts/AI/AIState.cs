@@ -39,9 +39,9 @@ public abstract class AIState : MonoBehaviour
             return;
 
         pos = col.transform.position;
-        pos.x = col.center.x * col.transform.lossyScale.x;
-        pos.y = col.center.y * col.transform.lossyScale.y;
-        pos.z = col.center.z * col.transform.lossyScale.z;
+        pos.x += col.center.x * col.transform.lossyScale.x;
+        pos.y += col.center.y * col.transform.lossyScale.y;
+        pos.z += col.center.z * col.transform.lossyScale.z;
 
         radius = Mathf.Max(col.radius * col.transform.lossyScale.x, col.radius * col.transform.lossyScale.y);
                           
