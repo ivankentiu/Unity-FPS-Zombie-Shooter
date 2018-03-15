@@ -5,13 +5,15 @@ using UnityEngine;
 public class AIZombieStateMachine : AIStateMachine
 {
     // Inspector Assigned
-    [SerializeField] [Range(10.0f, 360.0f)] float _fov          = 50.0f;
-    [SerializeField] [Range(0.0f, 1.0f)]    float _sight        = 0.5f;
-    [SerializeField] [Range(0.0f, 1.0f)]    float _hearing      = 1.0f;
-    [SerializeField] [Range(0.0f, 1.0f)]    float _aggression   = 0.5f;
-    [SerializeField] [Range(0, 100)]        int   _health       = 100;
-    [SerializeField] [Range(0.0f, 1.0f)]    float _intelligence = 0.5f;
-    [SerializeField] [Range(0.0f, 1.0f)]    float _satisfaction = 1.0f;
+    [SerializeField] [Range(10.0f, 360.0f)] float _fov           = 50.0f;
+    [SerializeField] [Range(0.0f, 1.0f)]    float _sight         = 0.5f;
+    [SerializeField] [Range(0.0f, 1.0f)]    float _hearing       = 1.0f;
+    [SerializeField] [Range(0.0f, 1.0f)]    float _aggression    = 0.5f;
+    [SerializeField] [Range(0, 100)]        int   _health        = 100;
+    [SerializeField] [Range(0.0f, 1.0f)]    float _intelligence  = 0.5f;
+    [SerializeField] [Range(0.0f, 1.0f)]    float _satisfaction  = 1.0f;
+    [SerializeField]                        float _replenishRate = 0.5f;
+    [SerializeField]                        float _depletionRate = 0.1f;
 
     // Private
     private int  _seeking    = 0;
@@ -27,6 +29,7 @@ public class AIZombieStateMachine : AIStateMachine
     private readonly int _attackHash  = Animator.StringToHash("Attack");
 
     // Public Properties
+    public float replenishRate { get { return _replenishRate; } }
     public float fov { get { return _fov; } }
     public float hearing { get { return _hearing; } }
     public float sight { get { return _sight; } }

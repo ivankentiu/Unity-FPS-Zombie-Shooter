@@ -40,7 +40,6 @@ public class AIZombieState_Patrol1 : AIZombieState
 
         // Configure State Machine
         _zombieStateMachine.NavAgentControl(true, false);
-        _zombieStateMachine.speed = _speed;
         _zombieStateMachine.seeking = 0;
         _zombieStateMachine.feeding = false;
         _zombieStateMachine.attackType = 0;
@@ -92,6 +91,16 @@ public class AIZombieState_Patrol1 : AIZombieState
                 _stateMachine.SetTarget(_stateMachine.VisualThreat);
                 return AIStateType.Pursuit;
             }
+        }
+
+        if (_zombieStateMachine.navAgent.pathPending)
+        {
+            _zombieStateMachine.speed = 0;
+            return AIStateType.Patrol;
+        }
+        else
+        {
+            _zombieStateMachine.speed = _speed;
         }
 
         // Calculate angle we need to turn through to be facing our target
@@ -150,12 +159,12 @@ public class AIZombieState_Patrol1 : AIZombieState
     // Name	:	OnAnimatorIKUpdated
     // Desc	:	Override IK Goals
     // -----------------------------------------------------------------------
-    public override void OnAnimatorIKUpdated()
+    /*public override void OnAnimatorIKUpdated()
     {
         if (_zombieStateMachine == null)
             return;
 
         _zombieStateMachine.animator.SetLookAtPosition(_zombieStateMachine.targetPosition + Vector3.up);
         _zombieStateMachine.animator.SetLookAtWeight(0.55f);
-    }
+    }*/
 }

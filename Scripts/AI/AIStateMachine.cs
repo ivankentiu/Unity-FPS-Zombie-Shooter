@@ -138,7 +138,7 @@ public abstract class AIStateMachine : MonoBehaviour
         // Cache all frequently accessed components
         _transform = transform;
         _animator = GetComponent<Animator>();
-        _navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        _navAgent = GetComponent<NavMeshAgent>();
         _collider = GetComponent<Collider>();
 
         // Do we have a valid Game Scene Manager

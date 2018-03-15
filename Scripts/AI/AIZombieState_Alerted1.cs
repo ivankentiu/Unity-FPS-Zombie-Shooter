@@ -5,7 +5,7 @@ public class AIZombieState_Alerted1 : AIZombieState
 {
     // Inspector Assigned
     [SerializeField] [Range(1, 60)] float   _maxDuration = 10.0f;
-    [SerializeField] float  _waypointAngleThreshold =   90.0f;
+    [SerializeField] float  _waypointAngleThreshold =   45.0f;
     [SerializeField] float  _threatAngleThreshold   =   10.0f;
     [SerializeField] float  _directionChangeTime    =   1.5f;
 
